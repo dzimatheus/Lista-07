@@ -1,0 +1,58 @@
+package Lista7;
+
+public class Exercicio5 {
+    public static void main(String[] args) {
+        int array[] = {10,5,7,8,12,43,54,77,81,94};
+        int x = 54;
+        int maior = 0;
+        int diferenca = 0;
+        int posicao = 0;
+        for(int i = 0; i < array.length - 1; i++){
+            diferenca = array[i] - array[i+1];
+            if(diferenca < 0){
+                diferenca = -diferenca;
+            }
+            if(diferenca > maior){
+                maior = diferenca;
+                posicao = i;
+            }
+        }
+        System.out.println("Valor da maior diferenca " + maior);
+        System.out.println("Posicao dos valores " + posicao + " " + (posicao + 1));
+        System.out.println("Os valores com a maior diferneca " + array[posicao] + " e " + array[posicao + 1]);
+
+        int crescente = 0;
+        int decrescente = 0;
+
+        for(int i = 0; i < array.length - 1; i++){
+            if(array[i] < array[i+1])
+                crescente++;
+            else
+                decrescente++;
+        }
+        if(crescente > 0 && decrescente == 0)
+            System.out.println("A array esta em ordem crescente ");
+        else 
+            if(decrescente > 0 && crescente == 0)
+                System.out.println("A array esta em ordem decrescente ");
+            else
+                System.out.println("Nao esta ordenado");
+        
+        int maiorr = 0;
+        int menor = 0;
+        int igual = 0;
+
+        for(int valor : array){
+            if(valor > x)
+                maiorr++;
+            else
+                if(valor < x)
+                    menor++;
+                else
+                    igual++;
+        }
+        System.out.println("Maiores que x " + maiorr);
+        System.out.println("Menores que x " + menor);
+        System.out.println("Iguais a x " + igual);
+    }
+}
